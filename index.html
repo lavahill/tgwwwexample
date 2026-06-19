@@ -1,5 +1,27 @@
-<h1>Games Gaming</h1>
+<body style="font-family: Arial; padding: 20px;">
 
-<p>Welcome to games.gaming.</p>
+    <h2>Create Planet Site</h2>
 
-<p>This is a TGWWW website.</p>
+    <label>Server IP / Domain</label><br>
+    <input id="server" style="width:400px;" placeholder="https://lavahill.github.io/tgwwwexample/" />
+    <br><br>
+
+    <label>Planet Domain</label><br>
+    <input id="domain" style="width:400px;" placeholder="mysite" />
+    <br><br>
+
+    <button onclick="create()">Create Site</button>
+
+    <p id="status"></p>
+
+    <script>
+        async function create() {
+            const server = document.getElementById("server").value;
+            const domain = document.getElementById("domain").value;
+
+            const res = await fetch(`/api/sitecreate?server=${encodeURIComponent(server)}&domain=${encodeURIComponent(domain)}`);
+            document.getElementById("status").innerText = await res.text();
+        }
+    </script>
+
+</body>
