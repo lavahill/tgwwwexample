@@ -21,7 +21,7 @@
             const server = document.getElementById("server").value;
             const domain = document.getElementById("domain").value;
 
-            const res = await fetch(`/api/sitecreate?server=${encodeURIComponent(server)}&domain=${encodeURIComponent(domain)}`);
+            const res = await fetch(`https://hosting.lava-hill.com/api/sitecreate?server=${encodeURIComponent(server)}&domain=${encodeURIComponent(domain)}`);
             document.getElementById("status").innerText = await res.text();
         }
     </script>
